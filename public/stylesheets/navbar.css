@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #2c3e50;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-logo img {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #3498db;
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+}
+
+
+/* Footer Styles */
+.footer {
+    background-color: #1c1c3c; /* 深色背景，与整体风格协调 */
+    color: #a0a0c0; /* 柔和的文字颜色 */
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto; /* 将页脚推到底部，如果页面内容不足 */
+    font-size: 0.9em;
+    border-top: 1px solid #303050; /* 顶部边框，增加分隔感 */
+}
+
+.footer p {
+    margin: 5px 0;
+}
+
+.footer .social-links a {
+    color: #a0a0c0;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+.footer .social-links a:hover {
+    color: #ffffff; /* 鼠标悬停时变亮 */
+}
+
+/* 确保 body 至少有视口高度，以便页脚能正确固定在底部 */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* 主内容区域占据剩余空间 */
+.hero-section, .main-content, .content {
+    flex-grow: 1;
+}
