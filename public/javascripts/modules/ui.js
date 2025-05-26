@@ -1,6 +1,6 @@
 import { socket } from './socket.js';
 import { currentUser } from './auth.js';
-import { gameState } from './game.js';
+import { gameState, startTimer, selectAnswer, challengeUser } from './game.js';
 
 // DOM Elements
 const loginContainer = document.getElementById('login-container');
@@ -12,12 +12,13 @@ const waitingMessage = document.getElementById('waiting-message');
 const questionContainer = document.getElementById('question-container');
 const resultContainer = document.getElementById('result-container');
 const finalResult = document.getElementById('final-result');
+const challengeContainer = document.getElementById('challenge-container');
+const challengeStatus = document.getElementById('challenge-status');
+const waitingChallenge = document.getElementById('waiting-challenge');
+const challengeMessage = document.getElementById('challenge-message');
 
-// 创建挑战提示容器
-const challengeContainer = document.createElement('div');
-challengeContainer.id = 'challenge-container';
-challengeContainer.className = 'challenge-container';
-document.querySelector('.content').insertBefore(challengeContainer, gameContainer);
+// 将challengeUser函数暴露到全局作用域
+window.challengeUser = challengeUser;
 
 function showUserInfo() {
     loginForm.style.display = 'none';
@@ -41,7 +42,6 @@ function showLoginForm() {
 
 function updateUsersList(users) {
     usersList.innerHTML = '';
-    challengeContainer.innerHTML = '';
     
     if (!currentUser) {
         const loginPrompt = document.createElement('div');
@@ -53,41 +53,24 @@ function updateUsersList(users) {
 
     if (gameState.challengedBy) {
         document.getElementById('online-users').style.display = 'none';
-        const challengeDiv = document.createElement('div');
-        challengeDiv.className = 'challenge-status';
-        challengeDiv.innerHTML = `你收到了来自 ${gameState.challengedBy} 的挑战请求，请问是否接受？<br>
-            <button id="accept-challenge-btn">接受</button>
-            <button id="reject-challenge-btn">拒绝</button>`;
-        challengeContainer.appendChild(challengeDiv);
-        
-        document.getElementById('accept-challenge-btn').onclick = function() {
-            socket.emit('challenge_response', { accepted: true, challenger: gameState.challengedBy });
-            gameState.challengedBy = null;
-            gameState.challengingUser = null;
-            challengeContainer.innerHTML = '';
-            document.getElementById('online-users').style.display = 'block';
-        };
-        
-        document.getElementById('reject-challenge-btn').onclick = function() {
-            socket.emit('challenge_response', { accepted: false, challenger: gameState.challengedBy });
-            gameState.challengedBy = null;
-            gameState.challengingUser = null;
-            challengeContainer.innerHTML = '';
-            document.getElementById('online-users').style.display = 'block';
-        };
+        challengeContainer.style.display = 'block';
+        challengeStatus.style.display = 'block';
+        waitingChallenge.style.display = 'none';
+        challengeMessage.textContent = `You have a challenge request from ${gameState.challengedBy}. Do you accept?`;
         return;
     }
 
     if (gameState.challengingUser) {
         document.getElementById('online-users').style.display = 'none';
-        const waitingDiv = document.createElement('div');
-        waitingDiv.className = 'challenge-status';
-        waitingDiv.textContent = `Waiting for ${gameState.challengingUser} to accept your challenge...`;
-        challengeContainer.appendChild(waitingDiv);
+        challengeContainer.style.display = 'block';
+        challengeStatus.style.display = 'none';
+        waitingChallenge.style.display = 'block';
+        waitingMessage.textContent = `Waiting for ${gameState.challengingUser} to accept your challenge...`;
         return;
     }
 
     document.getElementById('online-users').style.display = 'block';
+    challengeContainer.style.display = 'none';
     const otherUsers = users.filter(user => user !== currentUser);
     if (otherUsers.length === 0) {
         const noUsersPrompt = document.createElement('div');
@@ -100,12 +83,35 @@ function updateUsersList(users) {
             userCard.className = 'user-card';
             userCard.innerHTML = `
                 <span>${user}</span>
-                <button class="challenge-btn" onclick="challengeUser('${user}')" ${gameState.isInGame ? 'disabled' : ''}>Challenge</button>
+                <button class="challenge-btn" ${gameState.isInGame ? 'disabled' : ''}>Challenge</button>
             `;
+            const challengeBtn = userCard.querySelector('.challenge-btn');
+            challengeBtn.addEventListener('click', () => {
+                if (!gameState.isInGame) {
+                    challengeUser(user);
+                }
+            });
             usersList.appendChild(userCard);
         });
     }
 }
+
+// 初始化挑战按钮事件监听器
+document.getElementById('accept-challenge-btn').addEventListener('click', () => {
+    socket.emit('challenge_response', { accepted: true, challenger: gameState.challengedBy });
+    gameState.challengedBy = null;
+    gameState.challengingUser = null;
+    challengeContainer.style.display = 'none';
+    document.getElementById('online-users').style.display = 'block';
+});
+
+document.getElementById('reject-challenge-btn').addEventListener('click', () => {
+    socket.emit('challenge_response', { accepted: false, challenger: gameState.challengedBy });
+    gameState.challengedBy = null;
+    gameState.challengingUser = null;
+    challengeContainer.style.display = 'none';
+    document.getElementById('online-users').style.display = 'block';
+});
 
 function showQuestion(question) {
     const questionElement = document.getElementById('question');
@@ -157,23 +163,85 @@ function showFinalResult(data) {
 }
 
 function resetGameState() {
-    gameState = {
-        score: 0,
-        opponentScore: 0,
-        currentQuestion: null,
-        timer: null,
-        isInGame: false,
-        challengingUser: null,
-        challengedBy: null
-    };
+    gameState.score = 0;
+    gameState.opponentScore = 0;
+    gameState.currentQuestion = null;
+    gameState.timer = null;
+    gameState.isInGame = false;
+    gameState.challengingUser = null;
+    gameState.challengedBy = null;
+    
     gameContainer.style.display = 'none';
     document.getElementById('online-users').style.display = 'block';
     questionContainer.style.display = 'none';
     resultContainer.style.display = 'none';
     finalResult.style.display = 'none';
     waitingMessage.style.display = 'none';
-    challengeContainer.innerHTML = '';
+    challengeContainer.style.display = 'none';
+    challengeStatus.style.display = 'none';
+    waitingChallenge.style.display = 'none';
 }
+
+// 事件监听器
+window.addEventListener('challengeSent', (event) => {
+    if (!event.detail || !event.detail.username) {
+        console.error('Invalid challenge event data');
+        return;
+    }
+    
+    document.getElementById('online-users').style.display = 'none';
+    challengeContainer.style.display = 'block';
+    challengeStatus.style.display = 'none';
+    waitingChallenge.style.display = 'block';
+    waitingMessage.textContent = `Waiting for ${event.detail.username} to accept your challenge...`;
+});
+
+window.addEventListener('challengeReceived', (event) => {
+    if (!event.detail || !event.detail.challenger) {
+        console.error('Invalid challenge received event data');
+        return;
+    }
+    
+    gameState.challengedBy = event.detail.challenger;
+    updateUsersList([]);
+});
+
+window.addEventListener('challengeAccepted', () => {
+    updateUsersList([]);
+});
+
+window.addEventListener('challengeRejected', () => {
+    alert('Your challenge was rejected');
+    resetGameState();
+    updateUsersList([]);
+});
+
+window.addEventListener('gameStarted', (event) => {
+    alert(`Game starting with ${event.detail.opponent}!`);
+    document.getElementById('online-users').style.display = 'none';
+    gameContainer.style.display = 'block';
+    waitingMessage.style.display = 'block';
+    challengeContainer.style.display = 'none';
+    challengeStatus.style.display = 'none';
+    waitingChallenge.style.display = 'none';
+});
+
+window.addEventListener('questionReceived', (event) => {
+    showQuestion(event.detail);
+});
+
+window.addEventListener('gameResult', (event) => {
+    showResult(event.detail);
+});
+
+window.addEventListener('gameOver', (event) => {
+    showFinalResult(event.detail);
+});
+
+window.addEventListener('opponentDisconnected', () => {
+    alert('Your opponent has disconnected');
+    resetGameState();
+});
 
 export {
     showUserInfo,
@@ -183,4 +251,4 @@ export {
     showResult,
     showFinalResult,
     resetGameState
-}; 
+};

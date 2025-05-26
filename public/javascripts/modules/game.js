@@ -1,6 +1,5 @@
 import { socket } from './socket.js';
 import { currentUser } from './auth.js';
-import { showQuestion, showResult, showFinalResult, resetGameState } from './ui.js';
 
 // Game state
 let gameState = {
@@ -38,6 +37,12 @@ function challengeUser(username) {
     if (!gameState.isInGame) {
         gameState.challengingUser = username;
         socket.emit('challenge', { opponent: username });
+        // 立即触发UI更新，传递正确的数据
+        window.dispatchEvent(new CustomEvent('challengeSent', { 
+            detail: { 
+                username: username 
+            }
+        }));
     }
 }
 
@@ -50,40 +55,54 @@ socket.on('challenge_request', (data) => {
     }
     gameState.challengedBy = challenger;
     gameState.challengingUser = null;
+    // 触发自定义事件，确保传递正确的数据
+    window.dispatchEvent(new CustomEvent('challengeReceived', { 
+        detail: { 
+            challenger: challenger 
+        }
+    }));
+});
+
+socket.on('challenge_sent', () => {
+    // 确保UI显示等待状态，传递当前挑战的用户名
+    window.dispatchEvent(new CustomEvent('challengeSent', { 
+        detail: { 
+            username: gameState.challengingUser 
+        }
+    }));
 });
 
 socket.on('challenge_accepted', () => {
     gameState.challengingUser = null;
     gameState.challengedBy = null;
+    window.dispatchEvent(new CustomEvent('challengeAccepted'));
 });
 
 socket.on('challenge_rejected', () => {
     gameState.challengingUser = null;
     gameState.challengedBy = null;
-    alert('Your challenge was rejected');
-    resetGameState();
+    window.dispatchEvent(new CustomEvent('challengeRejected'));
 });
 
 socket.on('game_start', (data) => {
     gameState.isInGame = true;
-    alert(`Game starting with ${data.opponent}!`);
+    window.dispatchEvent(new CustomEvent('gameStarted', { detail: data }));
 });
 
 socket.on('question', (question) => {
-    showQuestion(question);
+    window.dispatchEvent(new CustomEvent('questionReceived', { detail: question }));
 });
 
 socket.on('game_result', (data) => {
-    showResult(data);
+    window.dispatchEvent(new CustomEvent('gameResult', { detail: data }));
 });
 
 socket.on('game_over', (data) => {
-    showFinalResult(data);
+    window.dispatchEvent(new CustomEvent('gameOver', { detail: data }));
 });
 
 socket.on('opponent_disconnected', () => {
-    alert('Your opponent has disconnected');
-    resetGameState();
+    window.dispatchEvent(new CustomEvent('opponentDisconnected'));
 });
 
 export { gameState, startTimer, selectAnswer, challengeUser }; 
