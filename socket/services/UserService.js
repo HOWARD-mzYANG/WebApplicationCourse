@@ -37,9 +37,19 @@ class UserService {
         return Array.from(this.onlineUsers.values());
     }
 
+    // 新增方法：只返回状态为idle的用户
+    getAvailableUsers() {
+        return Array.from(this.onlineUsers.entries())
+            .filter(([socketId, username]) => {
+                const userState = this.userStates.get(socketId);
+                return userState && userState.state === 'idle';
+            })
+            .map(([socketId, username]) => username);
+    }
+
     isUsernameTaken(username) {
         return Array.from(this.onlineUsers.values()).includes(username);
     }
 }
 
-module.exports = new UserService(); 
+module.exports = new UserService();

@@ -92,15 +92,3 @@ body {
 .footer .social-links a:hover {
     color: #ffffff; /* 鼠标悬停时变亮 */
 }
-
-/* 确保 body 至少有视口高度，以便页脚能正确固定在底部 */
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-/* 主内容区域占据剩余空间 */
-.hero-section, .main-content, .content {
-    flex-grow: 1;
-}

@@ -6,3 +6,2432 @@ body {
 a {
   color: #00B7FF;
 }
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake 0.6s ease-in-out;
+}
+
+/* 动画效果 */
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 提示框过渡效果 */
+#answer-status {
+    transition: all 0.3s ease-in-out;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* 答题状态提示框样式 */
+.status-waiting {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.status-correct {
+    background-color: #d4edda;
+    border-color: #00b894;
+    color: #155724;
+    animation: correctPulse 0.6s ease-in-out;
+}
+
+.status-wrong {
+    background-color: #f8d7da;
+    border-color: #d63031;
+    color: #721c24;
+    animation: wrongShake
+}

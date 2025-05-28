@@ -20,7 +20,7 @@ function initializeAuth() {
 
     logoutBtn.addEventListener('click', () => {
         socket.emit('logout');
-        showLoginForm();
+        // showLoginForm(); // 可以保留立即更新UI，或依赖刷新后的效果
     });
 }
 
@@ -37,11 +37,12 @@ socket.on('login_error', (data) => {
 
 socket.on('logout_success', () => {
     currentUser = null;
-    showLoginForm();
+    // showLoginForm(); // 由刷新页面处理UI重置
+    location.reload(); // 刷新页面
 });
 
 socket.on('user_list', (users) => {
     updateUsersList(users);
 });
 
-export { currentUser, initializeAuth }; 
+export { currentUser, initializeAuth };

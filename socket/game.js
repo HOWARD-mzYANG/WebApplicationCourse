@@ -23,6 +23,15 @@ function initializeGameSocket(server) {
         socket.on('challenge_response', (data) => {
             gameController.handleChallengeResponse(socket, data);
         });
+        
+        // 添加新的事件处理
+        socket.on('answer', (data) => {
+            gameController.handleAnswer(socket, data);
+        });
+        
+        socket.on('timeout', () => {
+            gameController.handleTimeout(socket);
+        });
 
         socket.on('disconnect', () => {
             gameController.handleDisconnect(socket);
@@ -33,4 +42,4 @@ function initializeGameSocket(server) {
     return io;
 }
 
-module.exports = initializeGameSocket; 
+module.exports = initializeGameSocket;

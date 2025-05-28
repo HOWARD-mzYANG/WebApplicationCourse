@@ -1,0 +1,266 @@
+{
+    "questions": [
+        {
+            "type": "single",
+            "text": "What is the largest desert in the world?",
+            "options": ["Sahara Desert", "Gobi Desert", "Taklamakan Desert", "Namib Desert"],
+            "correct": "Sahara Desert"
+        },
+        {
+            "type": "single",
+            "text": "Which of the following is NOT one of the Four Great Ancient Civilizations?",
+            "options": ["Ancient Egypt", "Ancient Babylon", "Ancient India", "Ancient Greece"],
+            "correct": "Ancient Greece"
+        },
+        {
+            "type": "single",
+            "text": "What is the highest waterfall in the world?",
+            "options": ["Victoria Falls", "Angel Falls", "Niagara Falls", "Huangguoshu Falls"],
+            "correct": "Angel Falls"
+        },
+        {
+            "type": "single",
+            "text": "Which of the following is NOT one of the Seven Wonders of the Ancient World?",
+            "options": ["Great Pyramid of Giza", "Hanging Gardens of Babylon", "Great Wall of China", "Statue of Zeus at Olympia"],
+            "correct": "Great Wall of China"
+        },
+        {
+            "type": "single",
+            "text": "What is the largest freshwater lake in the world by surface area?",
+            "options": ["Lake Baikal", "Lake Superior", "Lake Victoria", "Caspian Sea"],
+            "correct": "Lake Superior"
+        },
+        {
+            "type": "single",
+            "text": "Which of the following is NOT one of the world's three major religions?",
+            "options": ["Christianity", "Islam", "Buddhism", "Taoism"],
+            "correct": "Taoism"
+        },
+        {
+            "type": "single",
+            "text": "What is the largest coral reef system in the world?",
+            "options": ["Great Barrier Reef", "Maldives Atolls", "Red Sea Coral Reef", "Caribbean Sea Coral Reef"],
+            "correct": "Great Barrier Reef"
+        },
+        {
+            "type": "single",
+            "text": "Which of the following is NOT one of the Four Great Classical Novels of Chinese literature?",
+            "options": ["Dream of the Red Chamber", "Journey to the West", "Romance of the Three Kingdoms", "Strange Stories from a Chinese Studio"],
+            "correct": "Strange Stories from a Chinese Studio"
+        },
+        {
+            "type": "single",
+            "text": "What is the largest tropical rainforest in the world?",
+            "options": ["Amazon Rainforest", "Congo Rainforest", "Borneo Rainforest", "Madagascar Rainforest"],
+            "correct": "Amazon Rainforest"
+        },
+        {
+            "type": "single",
+            "text": "Which of the following is NOT one of the Four Great Inventions of ancient China?",
+            "options": ["Papermaking", "Compass", "Gunpowder", "Steam Engine"],
+            "correct": "Steam Engine"
+        },
+        {
+            "type": "single",
+            "text": "What is the largest active volcano in the world?",
+            "options": ["Mauna Loa, Hawaii", "Mount Vesuvius", "Mount Fuji", "Mount Etna"],
+            "correct": "Mauna Loa, Hawaii"
+        },
+        {
+            "type": "single",
+            "text": "Which of the following is NOT one of the three holy cities for major religions?",
+            "options": ["Jerusalem", "Mecca", "Vatican City", "Potala Palace"],
+            "correct": "Potala Palace"
+        },
+        {
+            "type": "single",
+            "text": "What is the largest canyon in the world?",
+            "options": ["Grand Canyon", "Yarlung Tsangpo Grand Canyon", "Three Gorges", "Nile Valley"],
+            "correct": "Grand Canyon"
+        },
+        {
+            "type": "single",
+            "text": "Which of the following is NOT one of the Four Great Ancient Civilizations?",
+            "options": ["Ancient Egypt", "Ancient Babylon", "Ancient India", "Ancient Rome"],
+            "correct": "Ancient Rome"
+        },
+        {
+            "type": "single",
+            "text": "What is the largest freshwater fish in the world?",
+            "options": ["Chinese Sturgeon", "Mekong Giant Catfish", "Arapaima", "Nile Perch"],
+            "correct": "Mekong Giant Catfish"
+        },
+        {
+            "type": "single",
+            "text": "Which of the following is NOT a major religious festival?",
+            "options": ["Christmas", "Eid al-Fitr", "Vesak (Buddha's Birthday)", "Spring Festival (Chinese New Year)"],
+            "correct": "Spring Festival (Chinese New Year)"
+        },
+        {
+            "type": "single",
+            "text": "What is the largest desert in the world?",
+            "options": ["Sahara Desert", "Gobi Desert", "Taklamakan Desert", "Namib Desert"],
+            "correct": "Sahara Desert"
+        },
+        {
+            "type": "single",
+            "text": "Which of the following is NOT one of the Four Great Ancient Civilizations?",
+            "options": ["Ancient Egypt", "Ancient Babylon", "Ancient India", "Ancient Greece"],
+            "correct": "Ancient Greece"
+        },
+        {
+            "type": "single",
+            "text": "What is the highest waterfall in the world?",
+            "options": ["Victoria Falls", "Angel Falls", "Niagara Falls", "Huangguoshu Falls"],
+            "correct": "Angel Falls"
+        },
+        {
+            "type": "single",
+            "text": "Which of the following is NOT one of the Seven Wonders of the Ancient World?",
+            "options": ["Great Pyramid of Giza", "Hanging Gardens of Babylon", "Great Wall of China", "Statue of Zeus at Olympia"],
+            "correct": "Great Wall of China"
+        },
+        {
+            "type": "single",
+            "text": "What is the largest freshwater lake in the world by surface area?",
+            "options": ["Lake Baikal", "Lake Superior", "Lake Victoria", "Caspian Sea"],
+            "correct": "Lake Superior"
+        },
+        {
+            "type": "single",
+            "text": "Which of the following is NOT one of the world's three major religions?",
+            "options": ["Christianity", "Islam", "Buddhism", "Taoism"],
+            "correct": "Taoism"
+        },
+        {
+            "type": "single",
+            "text": "What is the largest coral reef system in the world?",
+            "options": ["Great Barrier Reef", "Maldives Atolls", "Red Sea Coral Reef", "Caribbean Sea Coral Reef"],
+            "correct": "Great Barrier Reef"
+        },
+        {
+            "type": "single",
+            "text": "Which of the following is NOT one of the Four Great Classical Novels of Chinese literature?",
+            "options": ["Dream of the Red Chamber", "Journey to the West", "Romance of the Three Kingdoms", "Strange Stories from a Chinese Studio"],
+            "correct": "Strange Stories from a Chinese Studio"
+        },
+        {
+            "type": "single",
+            "text": "What is the largest tropical rainforest in the world?",
+            "options": ["Amazon Rainforest", "Congo Rainforest", "Borneo Rainforest", "Madagascar Rainforest"],
+            "correct": "Amazon Rainforest"
+        },
+        {
+            "type": "single",
+            "text": "Which of the following is NOT one of the Four Great Inventions of ancient China?",
+            "options": ["Papermaking", "Compass", "Gunpowder", "Steam Engine"],
+            "correct": "Steam Engine"
+        },
+        {
+            "type": "single",
+            "text": "What is the largest active volcano in the world?",
+            "options": ["Mauna Loa, Hawaii", "Mount Vesuvius", "Mount Fuji", "Mount Etna"],
+            "correct": "Mauna Loa, Hawaii"
+        },
+        {
+            "type": "single",
+            "text": "Which of the following is NOT one of the three holy cities for major religions?",
+            "options": ["Jerusalem", "Mecca", "Vatican City", "Potala Palace"],
+            "correct": "Potala Palace"
+        },
+        {
+            "type": "single",
+            "text": "What is the largest canyon in the world?",
+            "options": ["Grand Canyon", "Yarlung Tsangpo Grand Canyon", "Three Gorges", "Nile Valley"],
+            "correct": "Grand Canyon"
+        },
+        {
+            "type": "single",
+            "text": "Which of the following is NOT one of the Four Great Ancient Civilizations?",
+            "options": ["Ancient Egypt", "Ancient Babylon", "Ancient India", "Ancient Rome"],
+            "correct": "Ancient Rome"
+        },
+        {
+            "type": "single",
+            "text": "What is the largest freshwater fish in the world?",
+            "options": ["Chinese Sturgeon", "Mekong Giant Catfish", "Arapaima", "Nile Perch"],
+            "correct": "Mekong Giant Catfish"
+        },
+        {
+            "type": "single",
+            "text": "Which of the following is NOT a major religious festival?",
+            "options": ["Christmas", "Eid al-Fitr", "Vesak (Buddha's Birthday)", "Spring Festival (Chinese New Year)"],
+            "correct": "Spring Festival (Chinese New Year)"
+        },
+        {
+            "type": "boolean",
+            "text": "Earth is the largest planet in the solar system.",
+            "correct": false
+        },
+        {
+            "type": "boolean",
+            "text": "The Great Wall of China is the longest wall in the world.",
+            "correct": true
+        },
+        {
+            "type": "boolean",
+            "text": "Mount Everest is the highest mountain peak in the world.",
+            "correct": true
+        },
+        {
+            "type": "boolean",
+            "text": "The Amazon River has the largest discharge of water in the world.",
+            "correct": true
+        },
+        {
+            "type": "boolean",
+            "text": "The Pyramids were built by the ancient Egyptians.",
+            "correct": true
+        },
+        {
+            "type": "boolean",
+            "text": "The giant panda is the national treasure of China.",
+            "correct": true
+        },
+        {
+            "type": "boolean",
+            "text": "Earth is the only planet in the solar system with life.",
+            "correct": false
+        },
+        {
+            "type": "boolean",
+            "text": "The Great Wall of China is the oldest building in the world.",
+            "correct": false
+        },
+        {
+            "type": "boolean",
+            "text": "Mount Everest is the highest mountain peak on Earth.",
+            "correct": true
+        },
+        {
+            "type": "boolean",
+            "text": "The Amazon Rainforest is the largest tropical rainforest on Earth.",
+            "correct": true
+        },
+        {
+            "type": "boolean",
+            "text": "Pyramids are built by ancient Egyptians.",
+            "correct": true
+        },
+        {
+            "type": "boolean",
+            "text": "The giant panda is the national treasure of China.",
+            "correct": true
+        },
+        {
+            "type": "boolean",
+            "text": "Earth is the only planet in the solar system with life.",
+            "correct": false
+        },
+        {
+            "type": "boolean",
+            "text": "The Great Wall of China is the oldest building in the world.",
+            "correct": false
+        }
+    ]
+}

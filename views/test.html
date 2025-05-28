@@ -23,77 +23,123 @@
         </div>
     </nav>
 
-    <div class="content">
-        <!-- User Login Section -->
-        <div id="login-container" class="section">
-            <h2>Welcome to the Quiz Game</h2>
-            <div id="login-form">
-                <input type="text" id="username" placeholder="Enter your username">
-                <button id="login-btn">Login</button>
-            </div>
-            <div id="user-info" style="display: none;">
-                <span>Welcome, <span id="current-user"></span></span>
-                <button id="logout-btn">Logout</button>
-            </div>
-        </div>
-
-        <!-- Game Rules Section -->
-        <div id="game-intro" class="section">
-            <h2>Game Rules</h2>
-            <div class="intro-content">
-                <p>1. Each game consists of 10 questions, including multiple choice and true/false questions</p>
-                <p>2. Each correct answer earns 2 points, wrong answers or timeouts receive no points</p>
-                <p>3. Once a player answers correctly, the other player cannot continue</p>
-                <p>4. Each question has a 5-second time limit</p>
-                <p>5. The final score and winner will be displayed at the end of the game</p>
-            </div>
-        </div>
-
-        <!-- Online Users Section -->
-        <div id="online-users" class="section">
-            <h2>Online Users</h2>
-            <div id="users-list"></div>
-        </div>
-
-        <!-- Challenge Container -->
-        <div id="challenge-container" class="section" style="display: none;">
-            <div id="challenge-status" class="challenge-status">
-                <p id="challenge-message"></p>
-                <div class="challenge-buttons" style="display: flex; justify-content: center; gap: 10px; margin-top: 10px;">
-                    <button id="accept-challenge-btn">Accept</button>
-                    <button id="reject-challenge-btn">Reject</button>
+    <div class="main-layout">
+        <!-- Left Panel -->
+        <div class="left-panel">
+            <!-- User Login Section -->
+            <div id="login-container" class="section">
+                <h2>Welcome to the Quiz Game</h2>
+                <div id="login-form">
+                    <input type="text" id="username" placeholder="Enter your username">
+                    <button id="login-btn">Login</button>
+                </div>
+                <div id="user-info" style="display: none;">
+                    <span>Welcome, <span id="current-user"></span></span>
+                    <button id="logout-btn">Logout</button>
                 </div>
             </div>
-            <div id="waiting-challenge" class="challenge-status" style="display: none;">
-                <p id="waiting-message"></p>
+
+            <!-- Game Rules Section -->
+            <div id="game-intro" class="section">
+                <h2>Game Rules</h2>
+                <div class="intro-content">
+                    <p>1. Each game consists of 10 questions, including multiple choice and true/false questions</p>
+                    <p>2. Each correct answer earns 2 points, wrong answers or timeouts receive no points</p>
+                    <p>3. Once a player answers correctly, the other player cannot continue</p>
+                    <p>4. Each question has a 5-second time limit</p>
+                    <p>5. The final score and winner will be displayed at the end of the game</p>
+                </div>
+            </div>
+
+            <!-- Online Users Section -->
+            <div id="online-users" class="section">
+                <h2>Online Users</h2>
+                <div id="users-list"></div>
+            </div>
+
+            <!-- Challenge Container -->
+            <div id="challenge-container" class="section" style="display: none;">
+                <div id="challenge-status" class="challenge-status">
+                    <p id="challenge-message"></p>
+                    <div class="challenge-buttons" style="display: flex; justify-content: center; gap: 10px; margin-top: 10px;">
+                        <button id="accept-challenge-btn">Accept</button>
+                        <button id="reject-challenge-btn">Reject</button>
+                    </div>
+                </div>
+                <div id="waiting-challenge" class="challenge-status" style="display: none;">
+                    <p id="waiting-message"></p>
+                </div>
             </div>
         </div>
 
-        <!-- Game Container -->
-        <div id="game-container" style="display: none;">
-            <div id="waiting-message" style="display: none;">
-                <h3>Both parties have confirmed, waiting for the match to start...</h3>
-                <div id="countdown"></div>
-            </div>
-            <div id="question-container" style="display: none;">
-                <h2 id="question"></h2>
-                <div id="options"></div>
-                <div id="timer"></div>
-            </div>
-            <div id="result-container" style="display: none;">
-                <h3>Correct Answer: <span id="correct-answer"></span></h3>
-                <div id="scores">
-                    <p>Your Score: <span id="your-score">0</span></p>
-                    <p>Opponent's Score: <span id="opponent-score">0</span></p>
+        <!-- Right Panel - Game Container -->
+        <div class="right-panel" style="display: none;">
+            <div id="game-container">
+                <div class="game-layout">
+                    <!-- Score Board -->
+                    <div class="score-board">
+                        <div class="player-score">
+                            <h4>Your Score</h4>
+                            <div id="your-score" class="score">0</div>
+                        </div>
+                        <div class="player-score">
+                            <h4>Opponent Score</h4>
+                            <div id="opponent-score" class="score">0</div>
+                        </div>
+                    </div>
+                    <div id="timer" class="timer-display">
+                        <div class="timer-text">
+                            <img src="/images/clock.svg" alt="Clock" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 5px;"> <span id="timer-label">Time Remaining</span>: <span id="timer-value">30</span> seconds
+                        </div>
+                        <div class="timer-progress-container">
+                            <div id="timer-progress" class="timer-progress-bar"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Question Panel -->
+                    <div id="question-container" style="display: none;">
+                        <h2 id="question" class="question-text"></h2>
+                        <div id="options" class="options-grid"></div>
+                        <button id="submit-answer-btn" class="btn-primary" style="margin-top:10px;">Submit Answer</button>
+                    </div>
+                    <div id="result-container" style="display: none;">
+                        <h3>Correct Answer: <span id="correct-answer"></span></h3>
+                        <div id="answer-status">
+                            <div id="your-answer-status"></div>
+                            <div id="opponent-answer-status"></div>
+                        </div>
+                        <div id="speed-status"></div>
+                        <div id="fastest-answer" style="display: none;"></div>
+                    </div>
+                    <div id="final-result" style="display: none;">
+                        <div class="result-icon">
+                            <div class="icon-circle">
+                                <span class="result-emoji">🎉</span>
+                            </div>
+                        </div>
+                        <h2 class="result-title">Game Over!</h2>
+                        <div class="final-scores">
+                            <div class="score-item">
+                                <span class="score-label">Your Score</span>
+                                <span class="score-value" id="final-your-score">0</span>
+                            </div>
+                            <div class="score-divider">VS</div>
+                            <div class="score-item">
+                                <span class="score-label">Opponent Score</span>
+                                <span class="score-value" id="final-opponent-score">0</span>
+                            </div>
+                        </div>
+                        <p id="winner-message" class="winner-message"></p>
+                        <div class="result-actions">
+                            <button id="play-again-btn" class="btn-primary play-again-btn">
+                                <span>🎮</span> Play Again
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div id="final-result" style="display: none;">
-                <h2>Game Over!</h2>
-                <p id="winner-message"></p>
-                <button id="play-again-btn">Play Again</button>
-            </div>
         </div>
-    </div> <!-- Closing tag for div.content -->
+    </div>
 
     <script src="/socket.io/socket.io.js"></script>
     <script type="module" src="/javascripts/modules/main.js"></script>
@@ -103,7 +149,6 @@
         <div class="social-links">
             <a href="mailto:zhepro88@gmail.com" title="Email"><img src="/images/email.svg" alt="Email" style="width: 20px; height: 20px;"></a>
             <a href="https://github.com/Howard-mzYANG" target="_blank" title="GitHub"><img src="/images/github.svg" alt="GitHub" style="width: 20px; height: 20px;"></a>
-            <!-- Add more social links as needed -->
         </div>
     </footer>
 </body>
