@@ -37,7 +37,7 @@ class UserService {
         return Array.from(this.onlineUsers.values());
     }
 
-    // 新增方法：只返回状态为idle的用户
+    // Get users with idle status only
     getAvailableUsers() {
         return Array.from(this.onlineUsers.entries())
             .filter(([socketId, username]) => {

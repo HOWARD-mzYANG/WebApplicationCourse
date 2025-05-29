@@ -5,8 +5,8 @@ const questions = require('../data/questions.json');
 class GameController {
     constructor(io) {
         this.io = io;
-        this.gameStates = new Map(); // 存储游戏状态
-        this.activeGames = new Map(); // 存储活跃游戏房间信息 { gameId: {player1Id, player2Id, currentQuestionIndex} }
+        this.gameStates = new Map(); // Store game states
+        this.activeGames = new Map(); // Store active game room info { gameId: {player1Id, player2Id, currentQuestionIndex} }
         console.log('Questions loaded:', questions);
     }
 
@@ -34,15 +34,15 @@ class GameController {
                 if (opponentSocket) {
                     opponentSocket.emit('opponent_disconnected', { opponentUsername: username });
                 }
-                // 解绑对手的状态
+                // Unbind opponent's state
                 const opponentUserState = userService.getUserState(opponentId);
                 if (opponentUserState) {
-                    userService.updateUserState(opponentId, 'idle', null); // 将对手状态设为空闲，清除对手信息
+                    userService.updateUserState(opponentId, 'idle', null); // Set opponent to idle, clear opponent info
                 }
             }
             
-            userService.removeUser(socket.id); // 移除当前用户
-            userService.updateUserState(socket.id, 'idle', null); // 清理当前用户的状态（虽然即将移除，但保持一致性）
+            userService.removeUser(socket.id); // Remove current user
+            userService.updateUserState(socket.id, 'idle', null); // Clean current user state (for consistency)
             socket.emit('logout_success');
             this.broadcastUserList();
         }
@@ -59,15 +59,15 @@ class GameController {
                 if (opponentSocket) {
                     opponentSocket.emit('opponent_disconnected', { opponentUsername: username });
                 }
-                // 解绑对手的状态
+                // Unbind opponent's state
                 const opponentUserState = userService.getUserState(opponentId);
                 if (opponentUserState) {
-                    userService.updateUserState(opponentId, 'idle', null); // 将对手状态设为空闲，清除对手信息
+                    userService.updateUserState(opponentId, 'idle', null); // Set opponent to idle, clear opponent info
                 }
             }
             
             userService.removeUser(socket.id);
-            // 注意：用户断开连接后，其 userState 也会被 removeUser 清除，所以不需要再单独 updateUserState
+            // Note: After user disconnects, userState is also cleared by removeUser, no need for separate updateUserState
             this.broadcastUserList();
         }
     }
@@ -91,7 +91,7 @@ class GameController {
         });
         socket.emit('challenge_sent');
         
-        // 广播更新后的用户列表，移除已经不是idle状态的用户
+        // Broadcast updated user list, remove users not in idle state
         this.broadcastUserList();
     }
 
@@ -110,7 +110,7 @@ class GameController {
             const player1Id = result.challengerId;
             const player2Id = socket.id;
 
-            // 初始化双方游戏状态
+            // Initialize game states for both players
             const initialGameState = {
                 score: 0,
                 answeredThisRound: false,
@@ -120,7 +120,7 @@ class GameController {
             this.gameStates.set(player1Id, { ...initialGameState });
             this.gameStates.set(player2Id, { ...initialGameState });
 
-            // 创建活跃游戏房间信息
+            // Create active game room info
             const gameId = `${player1Id}-${player2Id}`;
             this.activeGames.set(gameId, {
                 player1Id,
@@ -164,11 +164,11 @@ class GameController {
     }
 
     broadcastUserList() {
-        const users = userService.getAvailableUsers(); // 或者直接修改getAllUsers方法
+        const users = userService.getAvailableUsers(); // Or modify getAllUsers method directly
         this.io.emit('user_list', users);
     }
 
-    // 添加处理答案的方法
+    // Add answer handling method
     handleAnswer(socket, data) {
         const socketId = socket.id;
         const userState = userService.getUserState(socketId);
@@ -214,23 +214,17 @@ class GameController {
     
         playerState.correctThisRound = (data.answer === currentQuestion.correct);
     
-        // 检查是否双方都已作答
-        if (playerState.answeredThisRound && opponentState.answeredThisRound && !gameRoom.processingResult) {
-            // 双方都已作答，处理结果
-            if (!gameRoom.resultProcessedForThisQuestion) {
-                gameRoom.processingResult = true;
-                this.processQuestionResult(gameRoom.player1Id, gameRoom.player2Id, gameId);
-            }
-        } else if (playerState.answeredThisRound && !opponentState.answeredThisRound) {
-            // 当前玩家先提交，对方还未作答
-            socket.emit('answer_received', {
-                message: 'Answer received, waiting for opponent',
-                waitingForOpponent: true
-            });
+        // Check if both players have answered
+        // 在 handleAnswer 方法中，第220行附近
+        if (opponentState && opponentState.answeredThisRound) {
+        // Both have answered, process result
+        this.processQuestionResult(gameRoom.player1Id, gameRoom.player2Id, gameId);
+        } else {
+        // Current player submitted first, opponent hasn't answered yet
         }
     }
 
-    // 处理超时
+    // Handle timeout
     handleTimeout(socket) {
         const socketId = socket.id;
         const userState = userService.getUserState(socketId);
@@ -261,24 +255,54 @@ class GameController {
             return;
         }
     
-        // 修复：使用统一的超时时间戳
+        // Fix: Use unified timeout timestamp
         if (!gameRoom.timeoutTimestamp) {
             gameRoom.timeoutTimestamp = Date.now();
         }
     
         playerState.answeredThisRound = true;
-        playerState.answerTimeThisRound = gameRoom.timeoutTimestamp; // 使用统一时间戳
+        playerState.answerTimeThisRound = gameRoom.timeoutTimestamp;
         playerState.correctThisRound = false;
         
-        if (opponentState.answeredThisRound && !gameRoom.processingResult) {
-            if (!gameRoom.resultProcessedForThisQuestion) {
-                gameRoom.processingResult = true;
-                this.processQuestionResult(gameRoom.player1Id, gameRoom.player2Id, gameId);
-            }
+        // 检查是否需要处理结果
+        if (opponentState.answeredThisRound) {
+        // 对手已经回答（或超时），立即处理结果
+        if (!gameRoom.resultProcessedForThisQuestion && !gameRoom.processingResult) {
+            gameRoom.processingResult = true;
+            this.processQuestionResult(gameRoom.player1Id, gameRoom.player2Id, gameId);
+        }
+        } else {
+        // 对手还没有回答，设置延迟处理
+        if (!gameRoom.timeoutProcessing) {
+            gameRoom.timeoutProcessing = true;
+            setTimeout(() => {
+                // 再次检查对手是否已经回答
+                if (!opponentState.answeredThisRound && !gameRoom.resultProcessedForThisQuestion) {
+                    // 对手仍然没有回答，强制设置为超时
+                    opponentState.answeredThisRound = true;
+                    // 修改前：
+                    opponentState.answerTimeThisRound = gameRoom.timeoutTimestamp + 1;
+                    
+                    // 修改后：
+                    opponentState.answerTimeThisRound = gameRoom.timeoutTimestamp;
+                    opponentState.correctThisRound = false;
+                    console.log(`[SERVER] Force timeout for opponent ${opponentId}`);
+                }
+                
+                // 现在处理结果
+                if (!gameRoom.resultProcessedForThisQuestion && !gameRoom.processingResult) {
+                    gameRoom.processingResult = true;
+                    this.processQuestionResult(gameRoom.player1Id, gameRoom.player2Id, gameId);
+                }
+                
+                gameRoom.timeoutProcessing = false; // 重置标志
+            }, 1000);
+        }
         }
     }
     
     processQuestionResult(player1Id, player2Id, gameId) {
+        console.log(`[SERVER] processQuestionResult called for game ${gameId}, p1: ${player1Id}, p2: ${player2Id}`); // 添加日志
         const player1State = this.gameStates.get(player1Id);
         const player2State = this.gameStates.get(player2Id);
         const gameRoom = this.activeGames.get(gameId);
@@ -289,10 +313,10 @@ class GameController {
             return;
         }
 
-        // 防止因意外情况重复处理同一问题结果
+        // Prevent duplicate processing of same question result due to unexpected situations
         if (gameRoom.resultProcessedForThisQuestion) {
-            console.warn('Attempted to process result for a question that was already processed. GameId:', gameId, 'QuestionIndex:', gameRoom.currentQuestionIndex);
-            gameRoom.processingResult = false; // 确保重置
+            console.log('Result already processed for this question, skipping');
+            gameRoom.processingResult = false; // Ensure reset
             return;
         }
 
@@ -304,59 +328,59 @@ class GameController {
         const p1Time = player1State.answerTimeThisRound;
         const p2Time = player2State.answerTimeThisRound;
 
-        // 确保双方都已经有回答状态（即使是超时导致的answeredThisRound = true)
+        // Ensure both players have answer status (even if caused by timeout answeredThisRound = true)
         if (!player1State.answeredThisRound || !player2State.answeredThisRound) {
-            console.log('processQuestionResult called before both players answered. P1 answered:', player1State.answeredThisRound, 'P2 answered:', player2State.answeredThisRound);
-            gameRoom.processingResult = false; // 重置，等待双方都完成
+            console.log('Not all players have answered yet, waiting...');
+            gameRoom.processingResult = false; // Reset, wait for both to complete
             return;
         }
-
-        // 在 processQuestionResult 方法中，替换现有的计分逻辑
+        
+        // Replace existing scoring logic in processQuestionResult method
         p1RoundScore = 0;
         p2RoundScore = 0;
 
-        // 确定谁先交答案
+        // Determine who submitted first
         const p1First = p1Time < p2Time;
         const p2First = p2Time < p1Time;
         
         if (p1First) {
-        // P1先交答案
+        // P1 submitted first
         if (p1Correct) {
-        // P1先交且答对：P1得2分，P2得0分
+        // P1 first and correct: P1 gets 2 points, P2 gets 0
         p1RoundScore = 2;
         p2RoundScore = 0;
         } else {
-        // P1先交但答错：P2得1分（不管P2对错）
+        // P1 first but wrong: P2 gets 1 point (regardless of P2's answer)
         p1RoundScore = 0;
         p2RoundScore = 1;
         }
         } else if (p2First) {
-        // P2先交答案
+        // P2 submitted first
         if (p2Correct) {
-        // P2先交且答对：P2得2分，P1得0分
+        // P2 first and correct: P2 gets 2 points, P1 gets 0
         p1RoundScore = 0;
         p2RoundScore = 2;
         } else {
-        // P2先交但答错：P1得1分（不管P1对错）
+        // P2 first but wrong: P1 gets 1 point (regardless of P1's answer)
         p1RoundScore = 1;
         p2RoundScore = 0;
         }
         } else {
-        // 同时提交（极少情况）
+        // Simultaneous submission (rare case)
         if (p1Correct && p2Correct) {
-        // 都答对，都得1分
+        // Both correct, both get 1 point
         p1RoundScore = 1;
         p2RoundScore = 1;
         } else if (p1Correct && !p2Correct) {
-        // P1对P2错
+        // P1 correct, P2 wrong
         p1RoundScore = 2;
         p2RoundScore = 0;
         } else if (!p1Correct && p2Correct) {
-        // P1错P2对
+        // P1 wrong, P2 correct
         p1RoundScore = 0;
         p2RoundScore = 2;
         } else {
-        // 都答错，都得0分
+        // Both wrong, both get 0 points
         p1RoundScore = 0;
         p2RoundScore = 0;
         }
@@ -365,14 +389,14 @@ class GameController {
         player1State.score += p1RoundScore;
         player2State.score += p2RoundScore;
         
-        gameRoom.resultProcessedForThisQuestion = true; // 标记本题结果已成功处理
+        gameRoom.resultProcessedForThisQuestion = true; // Mark result as successfully processed
 
         const currentQuestion = questions.questions[gameRoom.currentQuestionIndex];
 
         const finalRoundResultForP1 = {
             yourAnswerCorrect: player1State.correctThisRound,
             opponentAnswerCorrect: player2State.correctThisRound,
-            correctAnswer: currentQuestion.correct, // 修改这里：从correctAnswer改为correct
+            correctAnswer: currentQuestion.correct, // Fix: change from correctAnswer to correct
             yourRoundScore: p1RoundScore,
             opponentRoundScore: p2RoundScore,
             yourTotalScore: player1State.score,
@@ -383,7 +407,7 @@ class GameController {
         const finalRoundResultForP2 = {
             yourAnswerCorrect: player2State.correctThisRound,
             opponentAnswerCorrect: player1State.correctThisRound,
-            correctAnswer: currentQuestion.correct, // 修改这里：从correctAnswer改为correct
+            correctAnswer: currentQuestion.correct, // Fix: change from correctAnswer to correct
             yourRoundScore: p2RoundScore,
             opponentRoundScore: p1RoundScore,
             yourTotalScore: player2State.score,
@@ -391,34 +415,35 @@ class GameController {
             isFaster: p2First ? true : (p1First ? false : null)
         };
 
-        // 延迟发送结果，给玩家时间查看自己的即时反馈和正确答案 (现在没有即时反馈了，但延迟仍然可以用于展示回合结果)
-        // 在processQuestionResult函数中，减少第一个延迟
+        // Delay sending results to give players time to see immediate feedback and correct answer (no immediate feedback now, but delay still useful for showing round results)
+        // Reduce first delay in processQuestionResult function
         setTimeout(() => {
+            console.log(`[SERVER] Emitting round_result for game ${gameId}`); // 添加日志
             this.io.to(player1Id).emit('round_result', finalRoundResultForP1);
             this.io.to(player2Id).emit('round_result', finalRoundResultForP2);
     
             player1State.answeredThisRound = false;
             player1State.answerTimeThisRound = null;
-            player1State.correctThisRound = null; // 重置正确性
+            player1State.correctThisRound = null; // Reset correctness
 
             player2State.answeredThisRound = false;
             player2State.answerTimeThisRound = null;
-            player2State.correctThisRound = null; // 重置正确性
+            player2State.correctThisRound = null; // Reset correctness
             
-            gameRoom.processingResult = false; // 重置处理标记
-            gameRoom.resultProcessedForThisQuestion = false; // 重置本题结果处理标记，为下一题做准备
+            gameRoom.processingResult = false; // Reset processing flag
+            gameRoom.resultProcessedForThisQuestion = false; // Reset result processing flag for next question
             gameRoom.currentQuestionIndex++;
             gameRoom.questionStartTime = null; 
     
-            if (gameRoom.currentQuestionIndex >= questions.questions.length || gameRoom.currentQuestionIndex >= 10) { // 改为10题
+            if (gameRoom.currentQuestionIndex >= questions.questions.length || gameRoom.currentQuestionIndex >= 10) { // Change to 10 questions
                 this.handleGameOver(player1Id, player2Id, gameId);
             } else {
-                // 改为10秒延迟，与前端计时器同步
+                // Change to 10 second delay, sync with frontend timer
                 setTimeout(() => {
                     const nextQuestion = questions.questions[gameRoom.currentQuestionIndex];
                     gameRoom.questionStartTime = Date.now();
-                    this.io.to(player1Id).emit('question', { ...nextQuestion, questionNumber: gameRoom.currentQuestionIndex + 1, totalQuestions: 10, questionStartTime: gameRoom.questionStartTime }); // 固定为10
-                    this.io.to(player2Id).emit('question', { ...nextQuestion, questionNumber: gameRoom.currentQuestionIndex + 1, totalQuestions: 10, questionStartTime: gameRoom.questionStartTime }); // 固定为10
+                    this.io.to(player1Id).emit('question', { ...nextQuestion, questionNumber: gameRoom.currentQuestionIndex + 1, totalQuestions: 10, questionStartTime: gameRoom.questionStartTime }); // Fixed to 10
+                    this.io.to(player2Id).emit('question', { ...nextQuestion, questionNumber: gameRoom.currentQuestionIndex + 1, totalQuestions: 10, questionStartTime: gameRoom.questionStartTime }); // Fixed to 10
                 }, 10000);
             }
         }, 1000);
@@ -446,12 +471,12 @@ class GameController {
         this.io.to(player1Id).emit('final_result', finalResultData);
         this.io.to(player2Id).emit('final_result', finalResultData);
 
-        // 清理游戏状态
+        // Clean up game state
         this.gameStates.delete(player1Id);
         this.gameStates.delete(player2Id);
         this.activeGames.delete(gameId);
 
-        // 更新用户状态为空闲
+        // Update user status to idle
         userService.updateUserState(player1Id, 'idle', null);
         userService.updateUserState(player2Id, 'idle', null);
         const p1UserState = userService.getUserState(player1Id);
@@ -459,7 +484,7 @@ class GameController {
         const p2UserState = userService.getUserState(player2Id);
         if(p2UserState) delete p2UserState.gameId;
 
-        this.broadcastUserList(); // 更新用户列表，挑战按钮应重新启用
+        this.broadcastUserList(); // Update user list, challenge buttons should be re-enabled
     }
 }
 

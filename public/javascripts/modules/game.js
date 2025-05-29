@@ -1,27 +1,43 @@
 import { socket } from './socket.js';
 import { currentUser } from './auth.js';
 
-// Game state - 统一的游戏状态对象
-let gameState = {
+// Game state - unified game state object
+const gameState = {
     score: 0,
     opponentScore: 0,
     currentQuestion: null,
     timer: null,
-    resultTimer: null, // 结果计时器
+    resultTimer: null, // Result timer
     isInGame: false,
     challengingUser: null,
     challengedBy: null
 };
 
 function selectAnswer(answer) {
- socket.emit('answer', { answer });
+    // 检查是否已经提交过答案
+    if (gameState.hasSubmittedAnswer) {
+        return;
+    }
+    
+    // 设置已提交标志
+    gameState.hasSubmittedAnswer = true;
+    
+    // 不再清理计时器，让它继续运行
+    // 注释掉原来的计时器清理代码
+    // if (gameState.timer) {
+    //     clearInterval(gameState.timer);
+    //     gameState.timer = null;
+    // }
+    
+    // 发送答案到服务器
+    socket.emit('answer', { answer });
 }
 
 function challengeUser(username) {
     if (!gameState.isInGame) {
         gameState.challengingUser = username;
         socket.emit('challenge', { opponent: username });
-        // 立即触发UI更新，传递正确的数据
+        // Immediately trigger UI update with correct data
         window.dispatchEvent(new CustomEvent('challengeSent', { 
             detail: { 
                 username: username 
@@ -39,7 +55,7 @@ socket.on('challenge_request', (data) => {
     }
     gameState.challengedBy = challenger;
     gameState.challengingUser = null;
-    // 触发自定义事件，确保传递正确的数据
+    // Trigger custom event with correct data
     window.dispatchEvent(new CustomEvent('challengeReceived', { 
         detail: { 
             challenger: challenger 
@@ -48,7 +64,7 @@ socket.on('challenge_request', (data) => {
 });
 
 socket.on('challenge_sent', () => {
-    // 确保UI显示等待状态，传递当前挑战的用户名
+    // Ensure UI shows waiting state with current challenged username
     window.dispatchEvent(new CustomEvent('challengeSent', { 
         detail: { 
             username: gameState.challengingUser 
@@ -74,6 +90,9 @@ socket.on('game_start', (data) => {
 });
 
 socket.on('question', (question) => {
+    // 重置提交状态
+    gameState.hasSubmittedAnswer = false;
+    
     window.dispatchEvent(new CustomEvent('questionReceived', { detail: question }));
 });
 
@@ -89,12 +108,12 @@ socket.on('opponent_disconnected', () => {
     window.dispatchEvent(new CustomEvent('opponentDisconnected'));
 });
 
-// 添加新的事件处理
+// Add new event handlers
 socket.on('answer_result', (data) => {
-    // 处理答案结果
+    // Handle answer result
     const { isCorrect, opponentAnswered } = data;
     
-    // 显示当前答案是否正确
+    // Show if current answer is correct
     const questionContainer = document.getElementById('question-container');
     if (isCorrect) {
         questionContainer.classList.add('correct-answer');
@@ -102,7 +121,7 @@ socket.on('answer_result', (data) => {
         questionContainer.classList.add('wrong-answer');
     }
     
-    // 如果对手已经回答或者自己答对了，不需要继续等待
+    // If opponent has answered or you got it right, no need to wait
     if (opponentAnswered || isCorrect) {
         clearInterval(gameState.timer);
     }
@@ -110,12 +129,12 @@ socket.on('answer_result', (data) => {
     window.dispatchEvent(new CustomEvent('answerResult', { detail: data }));
 });
 
-// 在现有的 socket 事件监听器后添加
-// 修改 answer_received 事件处理
+// In existing socket event listeners
+// Modify answer_received event handling
 socket.on('answer_received', (data) => {
     if (data.waitingForOpponent) {
-        // 不要在这里停止计时器，让它继续运行
-        // 只触发UI更新显示等待状态
+        // Don't stop timer here, let it continue running
+        // Only trigger UI update to show waiting state
         window.dispatchEvent(new CustomEvent('answerReceived', { 
             detail: { 
                 waitingForOpponent: true,
@@ -125,7 +144,7 @@ socket.on('answer_received', (data) => {
     }
 });
 
-// 修改 startTimer 函数
+// Modify startTimer function
 function startTimer() {
     let timeLeft = 30;
     let totalTime = 30;
@@ -158,7 +177,7 @@ function startTimer() {
             clearInterval(gameState.timer);
             gameState.timer = null;
             
-            // 统一的超时处理：只发送timeout事件
+            // Unified timeout handling: only send timeout event
             if (gameState.isInGame && !gameState.hasSubmittedAnswer) {
                 console.log('Timer expired, sending timeout to server');
                 socket.emit('timeout');
@@ -175,12 +194,12 @@ function startResultTimer() {
     const timerProgressElement = document.getElementById('timer-progress');
     const timerLabelElement = document.getElementById('timer-label');
     
-    // 设置结果计时器的初始状态
+    // Set initial state for result timer
     timerLabelElement.textContent = 'Next Question';
     timerValueElement.textContent = timeLeft;
     timerProgressElement.style.width = '100%';
     timerProgressElement.classList.remove('warning');
-    timerProgressElement.classList.add('warning'); // 结果计时器始终为红色
+    timerProgressElement.classList.add('warning'); // Result timer always red
     
     let startTime = Date.now();
     
@@ -188,59 +207,60 @@ function startResultTimer() {
         const elapsed = (Date.now() - startTime) / 1000;
         const currentTimeLeft = Math.max(0, totalTime - elapsed);
         
-        // 只在整秒时更新显示的数字
+        // Only update display on whole seconds
         const displayTime = Math.ceil(currentTimeLeft);
         if (displayTime !== parseInt(timerValueElement.textContent)) {
             timerValueElement.textContent = displayTime;
         }
         
-        // 平滑更新进度条
+        // Smooth progress bar update
         const progressPercent = (currentTimeLeft / totalTime) * 100;
         timerProgressElement.style.width = progressPercent + '%';
         
         if (currentTimeLeft <= 0) {
             clearInterval(gameState.resultTimer);
             gameState.resultTimer = null;
-            // 恢复计时器标签
+            // Restore timer label
             timerLabelElement.textContent = 'Time Remaining';
             window.dispatchEvent(new CustomEvent('resultTimerEnd'));
         }
-    }, 100); // 每100毫秒更新一次
+    }, 100); // Update every 100ms
 }
 
-// 在 round_result 事件处理中
+// In round_result event handling
 socket.on('round_result', (data) => {
-    // 确保答题计时器停止
+    console.log('[CLIENT] round_result event received:', data); // 添加日志
+// Ensure answer timer stops
     if (gameState.timer) {
         clearInterval(gameState.timer);
         gameState.timer = null;
+    }if (gameState.timer) {
+        clearInterval(gameState.timer);
+        gameState.timer = null;
     }
-    
-    // 处理回合结果
+    // Handle round result
     const { yourAnswerCorrect, opponentAnswerCorrect } = data;
-    
-    // 显示答案结果
-    const questionContainer = document.getElementById('question-container');
+// Show answer result
+const questionContainer = document.getElementById('question-container');
     if (yourAnswerCorrect) {
         questionContainer.classList.add('correct-answer');
     } else {
         questionContainer.classList.add('wrong-answer');
     }
-    
-    // 触发UI更新事件
+    // Trigger UI update event
     window.dispatchEvent(new CustomEvent('roundResult', { 
         detail: data
     }));
     
-    // 保持结果计时器，用于倒计时显示
+    // Keep result timer for countdown display
     startResultTimer();
 });
 
-// 添加其他socket事件监听器后添加
+// Add after other socket event listeners
 socket.on('final_result', (data) => {
     gameState.isInGame = false;
     window.dispatchEvent(new CustomEvent('finalResult', { detail: data }));
 });
 
-// 更新导出
+// Update exports
 export { gameState, startTimer, startResultTimer, selectAnswer, challengeUser };

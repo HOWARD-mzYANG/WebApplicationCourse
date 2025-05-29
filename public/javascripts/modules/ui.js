@@ -678,10 +678,9 @@ document.getElementById('play-again-btn').addEventListener('click', () => {
     // 重新获取用户列表
     socket.emit('get_users');
 });
-// 移除这些冗余的代码（第681-685行）
 // 添加 timeUp 事件监听器，处理超时情况
 // 添加 timeUp 事件监听器，处理超时情况
-// window.addEventListener('timeUp', () => {
-//     console.log('Time up detected, sending timeout to server');
-//     socket.emit('timeout');
-// });
+window.addEventListener('timeUp', () => {
+    console.log('Time up detected, sending timeout to server');
+    socket.emit('timeout');
+});
